@@ -763,9 +763,13 @@ server:
       additionalAnnotations: {}
       project: systems
       source:
-        repoURL: git@github.com:Chillibean/argocd-bootstrap.git
-        targetRevision: HEAD
-        path: argocd-tools
+        path: argo-cd
+        repoURL: 'https://chillibean.github.io/argo-helm'
+        targetRevision: 3.12.1
+        chart: argo-cd
+        helm:
+          valueFiles:
+            - argocd.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: argocd
